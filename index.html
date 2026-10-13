@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Calculator & Quick Tools</title>
+		<link
+			rel="stylesheet"
+			href="style.css" />
+	</head>
+	<body>
+		<main class="dashboard">
+			<!-- Calculator panel -->
+			<section class="panel calculator-panel">
+				<header class="panel-header calculator-header">
+					<div class="icon-tile calculator-icon">
+						<svg
+							viewBox="0 0 48 48"
+							role="img">
+							<rect
+								x="12"
+								y="7"
+								width="24"
+								height="34"
+								rx="3.5"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="3.2" />
+							<rect
+								x="16"
+								y="12"
+								width="16"
+								height="6"
+								rx="1"
+								fill="currentColor" />
+							<g fill="currentColor">
+								<circle
+									cx="17.5"
+									cy="24"
+									r="1.7" />
+								<circle
+									cx="24"
+									cy="24"
+									r="1.7" />
+								<circle
+									cx="30.5"
+									cy="24"
+									r="1.7" />
+								<circle
+									cx="17.5"
+									cy="30"
+									r="1.7" />
+								<circle
+									cx="24"
+									cy="30"
+									r="1.7" />
+								<circle
+									cx="30.5"
+									cy="30"
+									r="1.7" />
+								<circle
+									cx="17.5"
+									cy="36"
+									r="1.7" />
+								<circle
+									cx="24"
+									cy="36"
+									r="1.7" />
+								<circle
+									cx="30.5"
+									cy="36"
+									r="1.7" />
+							</g>
+						</svg>
+					</div>
+					<div class="header-copy">
+						<h1 id="calculator-title">Calculator</h1>
+						<p>
+							JavaScript Function + Operators ( + &nbsp;− &nbsp;× &nbsp;÷
+							&nbsp;% )
+						</p>
+					</div>
+				</header>
+
+				<input
+					type="text"
+					id="calc-display"
+					class="display"
+					readonly />
+
+				<table class="keypad">
+					<tbody>
+						<tr>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`7`)">
+									7
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`8`)">
+									8
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`9`)">
+									9
+								</button>
+							</td>
+							<td>
+								<button
+									class="key operator"
+									type="button"
+									onclick="addToDisplay(`/`)">
+									/
+								</button>
+							</td>
+							<td>
+								<button
+									class="key clear"
+									type="button"
+									onclick="clearAll()">
+									C
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`4`)">
+									4
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`5`)">
+									5
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`6`)">
+									6
+								</button>
+							</td>
+							<td>
+								<button
+									class="key operator"
+									type="button"
+									onclick="addToDisplay(`*`)">
+									*
+								</button>
+							</td>
+							<td>
+								<button
+									class="key percent"
+									type="button"
+									onclick="calcPercentage()">
+									%
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`1`)">
+									1
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`2`)">
+									2
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`3`)">
+									3
+								</button>
+							</td>
+							<td>
+								<button
+									class="key operator"
+									type="button"
+									onclick="addToDisplay(`-`)">
+									-
+								</button>
+							</td>
+							<td rowspan="2">
+								<button
+									class="key equals"
+									type="button"
+									onclick="calcAnswer()">
+									=
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button
+									class="key number zero"
+									type="button"
+									onclick="addToDisplay(`0`)">
+									0
+								</button>
+							</td>
+							<td>
+								<button
+									class="key number"
+									type="button"
+									onclick="addToDisplay(`.`)">
+									.
+								</button>
+							</td>
+							<td>
+								<button
+									class="key operator"
+									type="button"
+									onclick="addToDisplay(`+`)">
+									+
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<aside class="tip">
+					<span class="bulb">
+						<svg viewBox="0 0 28 36">
+							<path
+								d="M14 2.5C7.6 2.5 3.2 7.2 3.2 13c0 4 2.1 6.6 4.4 9.1 1.1 1.2 1.8 2.5 1.9 4h9c.1-1.5.8-2.8 1.9-4 2.3-2.5 4.4-5.1 4.4-9.1C24.8 7.2 20.4 2.5 14 2.5Z"
+								fill="currentColor" />
+							<path
+								d="M10 29h8M10.8 32h6.4"
+								stroke="currentColor"
+								stroke-width="2.2"
+								stroke-linecap="round" />
+							<path
+								d="M14 7v6m-3-3h6"
+								stroke="#e8f2ff"
+								stroke-width="1.5"
+								stroke-linecap="round" />
+						</svg>
+					</span>
+					<p>
+						This calculator uses JavaScript functions and operators to perform
+						calculations.
+					</p>
+				</aside>
+			</section>
+
+			<!-- Quick tools panel -->
+			<section class="panel tools-panel">
+				<header class="panel-header tools-header">
+					<div class="gear-icon">⚙</div>
+					<div class="header-copy">
+						<h2 id="tools-title">Quick Tools</h2>
+						<p>More JS Function Examples</p>
+					</div>
+				</header>
+
+				<section class="tool-card even-card">
+					<h3 id="even-title">1. Find Even or Odd</h3>
+					<form class="tool-form">
+						<label
+							class="visually-hidden"
+							for="even-number"
+							>Enter a number</label
+						>
+						<input
+							id="even-number"
+							type="number"
+							placeholder="Enter a number" />
+						<button
+							class="action-button blue-action"
+							type="button"
+							onclick="checkEvenNumber()">
+							Check
+						</button>
+					</form>
+					<div class="result even-result">
+						<strong>Result: - </strong><span id="even-result"></span>
+					</div>
+				</section>
+
+				<section class="tool-card square-card">
+					<h3 id="square-title">2. Find Square</h3>
+					<form class="tool-form">
+						<label
+							class="visually-hidden"
+							for="square-number"
+							>Enter a number</label
+						>
+						<input
+							id="square-number"
+							type="number"
+							placeholder="Enter a number" />
+						<button
+							class="action-button green-action"
+							type="button"
+							onclick="findSquare()">
+							Calculate
+						</button>
+					</form>
+					<div class="result square-result">
+						<strong>Result: - </strong><span id="square-result"></span>
+					</div>
+				</section>
+
+				<section class="tool-card max-card">
+					<h3 id="max-title">3. Find Maximum of Two Numbers</h3>
+					<form class="tool-form max-form">
+						<label
+							class="visually-hidden"
+							for="number-one"
+							>Number 1</label
+						>
+						<input
+							id="number-one"
+							type="number"
+							placeholder="Number 1" />
+						<label
+							class="visually-hidden"
+							for="number-two"
+							>Number 2</label
+						>
+						<input
+							id="number-two"
+							type="number"
+							placeholder="Number 2" />
+						<button
+							class="action-button purple-action"
+							type="button"
+							onclick="findMax()">
+							Find Max
+						</button>
+					</form>
+					<div class="result max-result">
+						<strong>Result: - </strong><span id="max-result"></span>
+					</div>
+				</section>
+			</section>
+		</main>
+		<script src="script.js"></script>
+	</body>
+</html>
